@@ -1,0 +1,63 @@
+<html>
+    <head>
+       
+        <script>
+            function ValidateData(){
+                var s=document.getElementById("str").value;
+                var pattern=document.getElementById("pat").value;
+                var reg=new RegExp(pattern,'gi');
+                var arr=document.getElementsByName('Operations')
+                for(var i=0;i<arr.length;i++){
+                    if(arr[i].checked){
+                        var st=arr[i].value;
+                        break;
+                    }
+                }
+                switch(st){
+                    case 'search':
+                   result=s.search(reg)
+                    break;
+                    case 'match':
+                    result=s.match(reg)
+                    break;
+                    case'Replace':
+
+                   rep=prompt("Enter new String");
+                    result=s.replace(reg,rep);
+                    break;
+                    case 'Test':
+                       
+                    break;
+
+
+                }
+                document.getElementById("mydiv").innerHTML=result;
+
+
+        
+
+
+
+
+            }
+
+        </script>
+    </head>
+    <body style="background-color: aqua; font-size: larger; font-weight: bold;">
+        string:<input type="text" name="str" id="str" size="50">
+        <p></p>
+        Patern:<input type="text" name="pat" id="pat" ><br>
+        Operations:<br>
+        <input type="radio" name="Operations" id="search" value="search"><label for="search">Search</label><br>
+        <input type="radio" name="Operations" id="match" value="match"><label for="match">Match</label><br>
+        <input type="radio" name="Operations" id="Replace" value="Replace"><label for="Replace">Replace</label><br>
+        <input type="radio" name="Operations" id="test" value=test"><label for="test">Test</label>
+
+<p></p>
+
+      <button type="button" name="btn" id="btn" onclick="ValidateData()"><label>Show Result</label></button>
+<div id="mydiv"></div>
+
+    </body>
+
+</html> 
