@@ -1,0 +1,86 @@
+<html>
+    <head>
+        <script>
+            arr=[];
+            function displaydata(){
+                str="<table border='2'> <tr><th>Product Id</th><th>Product Name</th><th>Product Price</th><th>Product Quantity</th></tr>"
+                    for( var ob of arr){
+                        str= str + `<tr><td> ${ob.pid}</td><td>${ob.pname}</td><td>${ob.pq}</td><td>${ob.pp}</td></tr>`
+                    }
+
+                    document.getElementById("mydiv").innerHTML=str
+                    clearform();
+
+            }
+
+            function clearform(){
+                document.getElementById("pid").value=""
+                document.getElementById("pname").value=""
+                document.getElementById("pq").value=""
+                document.getElementById("pp").value=""
+            }
+
+            function deleteproduct(){
+                var pid= parseInt(document.getElementById("pid").value)
+                var pos=arr.findIndex(a=> a.pid===pid)
+                if(pos!=-1){
+                    var b= confirm(`${pid} Do you really want to delete`)
+                    if(b){
+                        arr.splice(pos,1)
+                        displaydata();
+                        }
+                     }
+               
+                clearform();
+            }
+                function updateproduct(){
+                    var pid=parseInt(document.getElementById("pid").value)
+                    var pos=arr.findIndex(a => a.pid===pid)
+                    if(pos!=1){
+                        var newprice=parseFloat(prompt("enter new price"))
+                        var newquantity=parseInt(prompt("enter new quantity"))
+
+                        arr[pos].pq=newquantity;
+                        arr[pos].pp=newprice;
+                        displaydata();
+                    }
+
+                 clearform(); 
+                }
+            
+
+            function addproduct(){
+                var pid= document.getElementById("pid").value;
+                var pname= document.getElementById("pname").value;
+                var pq= document.getElementById("pq").value;
+                var pp= document.getElementById("pp").value;
+                var ob={pid:parseInt(pid),pname:pname,pq:parseInt(pq),pp:parseFloat(pp)}
+                arr.push(ob);
+                displaydata();
+
+            }
+        </script>
+    </head>
+    <body>
+        <form onload="displaydata()">
+        <table>
+
+           <tr><td> Product ID:</td>
+           <td><input type="text" name="pid" id="pid"></td></tr><br>
+            <tr><td>Product Name:</td>
+            <td><input type="text" name="pname" id="pname"></td></tr><br>
+            <tr><td>Product Quantity:</td>
+            <td><input type="text" name="pq" id="pq"></td></tr><br>
+            <tr><td>Product Price:</td>
+            <td><input type="text" name="pp" id="pp"></td></tr><br>
+        </table>
+            <button type="button" name="btn" id="btn" value="btn" onclick="addproduct()">Add Product</button>
+            <button type="button" name="btn" id="btn" value="btn" onclick="deleteproduct()">Delete Product</button>
+            <button type="button" name="btn" id="btn" value="btn" onclick="updateproduct()">Update Product</button>
+        
+            <div id="mydiv">
+
+            </div>
+        </form>
+    </body>
+</html>
