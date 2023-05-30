@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="./jquery.js"></script>
+    <script>
+        $(document).ready(function(){
+            var seats=[]
+            $('#btn').click(function(){
+               $('#mydiv').html("seats: "+seats)
+            })
+            $('input[name=tickets]').change(function(){
+                if($(this).is(':checked')){
+                    var b=$(this).val()
+                    var pos=seats.findIndex(a=>a===b)
+                    if(pos===-1){
+                        seats.push(b);
+                    }
+
+                }else{
+                    if(pos!==-1){
+                        seats.splice(pos,1);
+                    }
+
+                }
+
+
+
+
+            })
+
+        })
+
+           
+           
+
+
+
+
+       
+     
+
+
+    </script>
+</head>
+    
+<body>
+    Tickets:
+    <input type="checkbox" name="tickets" id="1" value="1"><label for="1">1</label>
+    <input type="checkbox" name="tickets" id="2" value="2"><label for="2">2</label>
+    <input type="checkbox" name="tickets" id="3" value="3"><label for="3">3</label>
+    <input type="checkbox" name="tickets" id="4" value="4"><label for="4">4</label>
+    <input type="checkbox" name="tickets" id="5" value="5"><label for="5">5</label>
+    <input type="checkbox" name="tickets" id="6" value="6"><label for="6">6</label>
+    <input type="checkbox" name="tickets" id="7" value="7"><label for="7">7</label>
+    <input type="checkbox" name="tickets" id="8" value="8"><label for="8">8</label>
+    <button type="button" id="btn" name="btn" value="btn">Show Data</button>
+    <div id="mydiv">
+
+
+    </div>
+</body>
+</html>
