@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <style>
+            form{
+                width: 50%;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Appointment Scheduler</h1>
+        <form>
+        <fieldset>
+            <legend>Personal Information</legend>
+            <label for="nm">Name</label><br>
+            <input type="text" id="nm" name="id" placeholder="name"><br>
+            <label for="tele">Telephone</label><br>
+            <input type="text" id="tele" name="tele" placeholder="telephone"><br>
+            <label for="em">Email</label><br>
+            <input type="text" id="em" name="em" placeholder="email"><br>
+            <label for="dob">Date Of Birth</label><br>
+            <input type="date" id="dob" name="dob"><br>
+        </fieldset>
+        <fieldset>
+            <legend>Appointment Request</legend>
+            <label for="vi">What is the reason for your visit</label><br>
+            <input type="text" name="vi" id="vi" placeholder="reason"><br>
+            <p></p>
+            <label for="bar">Pain Level</label><br>
+            <input type="range" name="bar" id="bar"><br>
+            <p></p>
+            <label for="date">Preferred Date</label><br>
+            <input type="date" name="date" id="date"><br>
+            <p></p>
+            <label for="time">Preferred Time</label><br>
+            <input type="time" name="time" id="time"><br>
+
+        </fieldset>
+        <p></p>
+        <input type="button" id="btn" name="btn" value="submit">
+    </form>
+    </body>
+</html>
