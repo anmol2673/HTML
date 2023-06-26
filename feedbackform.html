@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <style>
+            .myclass{
+               color: red;
+            }
+            body{
+                background-color: black;
+               color: red
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Feedback Form</h1>
+        <p>Please provide your feedback on any problems or difficulties you faced while purchasing items on 
+            our sports website.
+        </p><br>
+        <label for="t1">Type of Problems<span class="myclass">*</span></label><br>
+        <select name="pr" id="pr">
+            <option value="Technical">Technical Issue</option>
+            <option value="product">Product Not Available</option>
+            <option value="matching">Matching issue</option>
+        </select><br><br><br>
+        <label for="nm">Name<span class="myclass">*</span></label><br>
+        <input type="text" id="nm" name="nm"><br><br>
+        <label for="em">Email<span class="myclass">*</span></label><br>
+        <input type="text" id="em" name="em"><br><br>
+        <label for="loc">Location<span class="myclass">*</span></label><br>
+        <input type="text" id="loc" name="loc"><br><br>
+        <label for="ph">Phone<span class="myclass">*</span></label><br>
+        <input type="tel" id="ph" name="ph"><br>
+        <p></p>
+        <label for="desc">Description of the Problem<span class="myclass">*</span></label><br>
+        <textarea cols="20" rows="5" id="desc"></textarea><br>
+        <p></p>
+        <input type="checkbox" name="notifi">
+        <label for="notifi">Notification of Problem Solved</label><br>
+       <br>
+        <input type="button" name="submit" id="submit" value="submit">
+        
+        
+    </body>
+</html>
