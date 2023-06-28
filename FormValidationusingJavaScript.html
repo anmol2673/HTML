@@ -1,0 +1,188 @@
+<html>
+
+<head>
+<style>
+    table{
+        background-color: white;
+        color:rgb(26, 86, 110);
+    }
+
+    span{
+        color: red;
+    }
+</style>
+
+    <script>
+
+        function ValidateName() {
+            var a = document.getElementById('nm').value
+            if (a === "" || a.trim().length === 0) {
+                document.getElementById('err1').innerHTML = "Name cant be blank"
+                return false;
+            }
+            document.getElementById('err1').innerHTML = "";
+            return true;
+
+        }
+        function ValidateEmpCode() {
+            b = parseInt(document.getElementById('code').value)
+            if (b === "" || isNaN(b)) {
+                document.getElementById('err2').innerHTML = "Employee code cant be blank"
+                return false;
+            }
+            document.getElementById('err2').innerHTML = ""
+            return true;
+        }
+
+
+        function ValidateDepartment() {
+
+            c=document.getElementsByName('Department')
+            for(var i=0; i<c.length;i++){
+                if(c[i].checked){
+                    document.getElementById('err3').innerHTML=""
+                    return true;
+                }
+                document.getElementById('err3').innerHTML=" *one option must be selected"
+                return false;
+            }
+
+
+
+        }
+
+        function  ValidateAddress(){
+           d= document.getElementById('addr').value
+            if(d === ""){
+                document.getElementById('err5').innerHTML="address cant be empty"
+                return false
+            }
+            document.getElementById('err5').innerHTML=""
+            return true;
+
+        }
+
+        function  ValidateTrainingProgram(){
+            str=""
+            cnt=0
+            arr=document.getElementsByName('check')
+            for(var i=0;i<arr.length;i++){
+                if(arr[i].checked){
+                    str+=arr[i].value+","
+                    cnt=cnt+1
+
+                }
+                if(cnt>3){
+                    document.getElementById('err6').innerHTML=""
+                    return true;
+                }
+                document.getElementById('err6').innerHTML="minimum 3 fields must be selected"
+                    return false;
+
+            }
+
+
+        }
+
+        function ProgramAttended(){
+            var e=document.getElementsByName('program')
+            for(var i=0;i<e.length;i++){
+                if(e[i].checked){
+                    document.getElementById('err7').innerHTML=""
+                    return true;
+                }
+                document.getElementById('err7').innerHTML="1 to be selected"
+                return false;
+            }
+        }
+
+
+
+
+        function ValidateData() {
+            ValidateName();
+            ValidateEmpCode();
+            ValidateDepartment();
+
+           // ValidateDate();
+
+            ValidateAddress();
+
+            ValidateTrainingProgram();
+
+            ProgramAttended()
+
+
+        }
+    </script>
+
+</head>
+
+<body>
+    <form>
+        <table id="table" cellspacing="5px" border="2">
+
+            <tr>
+                <td><label for="name">Name</label></td>
+                <td><input type="text" id="nm" name="name" autofocus minlength="3" maxlength="10"
+                        pattern="[a-zA-Z]"><span>*</span><span id="err1"></span></td>
+
+            </tr>
+            <tr>
+                <td><label for="code">Employee Code</label></td>
+                <td><input type="text" id="code" name="code"><span>*</span><span id="err2"></span></td>
+            </tr>
+            <tr>
+                <td>Department</td>
+                <td>
+                    <input type="radio" id="ad" value="id" name="Department"><label for="ad">Adnin</label><br>
+                    <input type="radio" id="hr" value="hr" name="Department"><label for="hr">HR</label><br>
+                    <input type="radio" id="tech" value="tech" name="Department"><label for="tech">Technical</label><br>
+                    <input type="radio" id="ac" value="ac" name="Department"><label for="ac">Account</label>
+                    <span id="err3"></span>
+
+            </tr>
+            <tr>
+                <td><label for="date">Date of Joining</label></td>
+                <td><input type="date" id="date" name="date" value="date"><span id="err4"></span></td>
+            </tr>
+            <tr>
+                <td><label for="addr">address</label></td>
+                <td><textarea name="addr" id="addr" rows="5"></textarea><span>*</span><span id="err5"></span></td>
+            </tr>
+            <tr>
+                <td>Training Program Attended</td>
+                <td>
+                    <input type="checkbox" name="check" id="html" value="html">HTML/DHTML<label for="html"></label><br>
+                    <input type="checkbox" name="check" id="java" value="java">Java<label for="java"></label><br>
+                    <input type="checkbox" name="check" id="client" value="client">Client/Server<label
+                        for="client"></label><br>
+                    <input type="checkbox" name="check" id=".net" value=".net">HTML/DHTML<label for=".net"></label><br>
+                    <span id="err6"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>Training Program need to Attend</td>
+                <td>
+                    <select name="program" id="program">
+                        <option value="html">HTML</option>
+                        <option value="java">JAVA</option>
+                        <option value="client">CLIENT</option>
+                        <option value=".net">.NET</option>
+
+                    </select>
+                    <span>*</span><span id="err7"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Send Information At
+                </td>
+                <td><a href="mailto:mayankdubey2673@gmail.com">mayankdubey2673@gmail.com</a></td>
+            </tr>
+        </table>
+        <input type="button" id="btn" name="btn" value="Submit" onclick="ValidateData()">
+    </form>
+</body>
+
+</html>
